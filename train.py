@@ -19,6 +19,15 @@ import os
 
 from utils import preprocessData, loadBlurImg
 
+def getClassSize():
+    cars = glob.glob('./images/car/**/*.jpg', recursive=True)
+    notcars = glob.glob('./images/not-car/**/*.jpg', recursive=True)
+    c = len(cars)
+    n = len(notcars)
+    if c > n:
+        return c
+    return n
+
 def loadImgClass(classPath, classLable, classSize, imgSize):
     x = []
     y = []
@@ -110,7 +119,7 @@ def karasModel(inputShape):
     return model 
    
 size = 64
-classSize = 400
+classSize = getClassSize()
 scaled_X, y = loadData(size, classSize)
 
 n_classes = len(np.unique(y))

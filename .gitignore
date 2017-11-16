@@ -1,4 +1,6 @@
 *.h5
+*.jpg
+.DS_Store
 images/
 .vscode/
 __pycache__/

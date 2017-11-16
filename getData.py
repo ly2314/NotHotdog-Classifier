@@ -6,8 +6,6 @@ import numpy as np
 from multiprocessing.dummy import Pool as ThreadPool 
 import itertools
 
-from remove-invalid import removeInvalid
-
 pic_num = 1
 
 def store_raw_images(paths, links):
@@ -47,7 +45,11 @@ def main():
             'n02958343', \
             'n04341686', \
             'n04490091', \
-            'n03790512'
+            'n03790512', \
+            'n02691156', \
+            'n04194289', \
+            'n03594945', \
+            'n03777568'
              ]
     
     paths = ['images/not-car/animals', \
@@ -57,10 +59,16 @@ def main():
              'images/car/cars', \
              'images/not-car/structures', \
              'images/car/trucks', \
-             'images/car/mortorcycles']
+             'images/car/mortorcycles', \
+             'images/not-car/airplane', \
+             'images/not-car/ships', \
+             'images/car/jeeps', \
+             'images/car/old-cars']
 
     store_raw_images(paths, ids)
-    removeInvalid(paths)
+
+    from removeInvalid import remove
+    remove(paths)
 
 if __name__ == "__main__":
 

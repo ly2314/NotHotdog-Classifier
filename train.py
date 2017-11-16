@@ -146,7 +146,7 @@ model = karasModel(inputShape)
 #y_one_hoy = tf.one_hot(y_train, 2)
 print("train shape y", y.shape)
 model.compile('adam', 'categorical_crossentropy', ['accuracy'])
-history = model.fit(X_train, y_train, nb_epoch=10, validation_split=0.1)
+history = model.fit(X_train, y_train, nb_epoch=30, validation_split=0.1)
 
 y_one_hot_test = label_binarizer.fit_transform(y_test)
 
